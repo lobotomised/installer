@@ -1,0 +1,14 @@
+apt install cifs-utils -y
+
+Ajouter le fichier /root/.smbcredentials
+username=
+password=
+
+chmod 600 ~/.smbcredentials
+
+Créer le dossier de point de montage
+mkdir /mnt/foobar
+
+Ajouter dans le /etc/fstab
+
+//192.168.4.99/foo/bar/ /mnt/foobar cifs credentials=/root/.smbcredentials,uid=1000,gid=1000,noauto,x-systemd.automount,x-systemd.requires=network-online.target 0 0
